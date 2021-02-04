@@ -1,0 +1,71 @@
+basePath: /api/v1
+definitions:
+  controller.LoginPayload:
+    properties:
+      Email:
+        type: string
+      Password:
+        type: string
+    type: object
+  model.Auth:
+    properties:
+      authID:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      updatedAt:
+        type: string
+      user_name:
+        type: string
+    type: object
+host: localhost:8083
+info:
+  contact:
+    email: hzy01hzy@gmail.com
+    name: HZhenyong
+    url: http://www.swagger.io/support
+  description: 接口信息
+  termsOfService: http://swagger.io/terms/
+  title: tool工具接口
+  version: "1.0"
+paths:
+  /login:
+    post:
+      description: 用户登录
+      parameters:
+      - description: Email&Password
+        in: body
+        name: auth
+        required: true
+        schema:
+          $ref: '#/definitions/controller.LoginPayload'
+      responses:
+        "200":
+          description: ""
+  /register:
+    post:
+      description: 用户注册
+      parameters:
+      - description: 用户信息
+        in: body
+        name: auth
+        required: true
+        schema:
+          $ref: '#/definitions/model.Auth'
+      responses:
+        "201":
+          description: 注册成功
+      security:
+      - ApiKeyAuth: []
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

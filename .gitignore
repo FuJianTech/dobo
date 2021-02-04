@@ -1,0 +1,7 @@
+# Ignored files and directories #
+#################################
+*.log
+.env
+vendor/
+logs/
+*.db
