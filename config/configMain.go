@@ -14,7 +14,7 @@ type Configuration struct {
 }
 
 // ConfigMain - load the configurations from .env
-func ConfigMain() Configuration {
+func ConfigInit() Configuration {
 	var configuration Configuration
 
 	// Load environment variables

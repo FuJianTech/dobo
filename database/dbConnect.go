@@ -25,7 +25,7 @@ var err error
 func InitDB() *gorm.DB {
 	var db = DB
 
-	configureDB := config.ConfigMain()
+	configureDB := config.ConfigInit()
 
 	driver := configureDB.Database.DbDriver
 	username := configureDB.Database.DbUser
@@ -88,7 +88,7 @@ func InitDB() *gorm.DB {
 
 
 func migrateTables() {
-	configureDB := config.ConfigMain()
+	configureDB := config.ConfigInit()
 	driver := configureDB.Database.DbDriver
 
 	if driver == "mysql" {

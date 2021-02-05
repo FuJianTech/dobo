@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )
 
@@ -56,7 +56,7 @@ func validateJWT(token *jwt.Token) (interface{}, error) {
 	if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 		//log.Println("error parsing JWT")
 		utils.Logger().Error("error parsing JWT", ok)
-		return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
+		return nil, fmt.Errorf("Unexpected signing method:  %v", token.Header["alg"])
 	}
 	return MySigningKey, nil
 }

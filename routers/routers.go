@@ -13,7 +13,7 @@ import (
 )
 
 
-var configure = config.ConfigMain()
+var configure = config.ConfigInit()
 // SetupRouter ...
 func SetupRouter() *gin.Engine {
 	if configure.Server.ServerEnv == "production" {

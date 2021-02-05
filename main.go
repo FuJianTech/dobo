@@ -10,7 +10,7 @@ import (
 	"dobo/utils"
 )
 
-var configure = config.ConfigMain()
+var configure = config.ConfigInit()
 
 // @title tool工具接口
 // @version 1.0
