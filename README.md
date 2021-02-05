@@ -30,7 +30,22 @@ dobo 使用的是 [GORM] 作为 ORM. GORM 支持 **SQLite3**, **MySQL**,
 ```
 ./database.db
 ```
+**本地运行**
+- 本地运行需要开启go  mod
+- 执行 go get -u github.com/swaggo/swag/cmd/swag  安装swag
+- 执行 **go mod tidy**  下载依赖包
+- 进入到 dobo目录下 将.env.sample 修改成.env
+- 修改.env里面的系统配置信息
+- 执行 swag init 安装swagger页面
+- 执行go run main.go
+- 访问 http://localhost:8083/swagger/index.html  访问接口页面
 
+
+**初始化用户**
+```
+email:    admin@gibbon.com
+password: 123456
+```
 **接口示例:**
 - http://localhost:8083/api/v1/register 
   - `POST` [创建用户 不对外提供注册接口，需要使用Token进行注册]
