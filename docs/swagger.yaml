@@ -2,9 +2,9 @@ basePath: /api/v1
 definitions:
   controller.LoginPayload:
     properties:
-      Email:
+      email:
         type: string
-      Password:
+      password:
         type: string
     type: object
   model.Auth:
@@ -117,6 +117,26 @@ paths:
       - ApiKeyAuth: []
       tags:
       - docker
+  /images/pullImage:
+    post:
+      description: 拉去镜像
+      responses:
+        "200":
+          description: 推送成功
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - docker
+  /images/pushImage:
+    post:
+      description: 推送镜像
+      responses:
+        "200":
+          description: 推送成功
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - docker
   /images/reTagImage:
     get:
       description: 重命名tag
@@ -134,6 +154,16 @@ paths:
       responses:
         "200":
           description: 重命名成功
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - docker
+  /images/saveImage:
+    post:
+      description: 保存镜像到本地
+      responses:
+        "200":
+          description: 保存成功
       security:
       - ApiKeyAuth: []
       tags:

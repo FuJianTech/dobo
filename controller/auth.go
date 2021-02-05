@@ -12,10 +12,15 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
-type auth model.Auth
 
-var emailRegex = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+var emailRegex = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 
+
+type RegisterPayload struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
+	UserName string `json:"user_name"`
+}
 // @Title 注册
 // @Description 用户注册
 // @Security ApiKeyAuth
@@ -25,12 +30,18 @@ var emailRegex = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z
 // @Router /register [post]
 func CreateUserAuth(c *gin.Context) {
 	db := database.GetDB()
+	//var registerPayload RegisterPayload
 	auth := model.Auth{}
+
 	createAuth := 0 // default value
 
 	auth.AuthID = middleware.AuthID
 
-	c.ShouldBindJSON(&auth)
+	err := c.ShouldBindJSON(&auth)
+	if err != nil {
+		c.JSON(http.StatusOK, utils.RespErrorMsg(500,"数据格式错误"))
+		return
+	}
 
 	if isEmailValid(auth.Email) == false {
 		createAuth = 1 // invalid email

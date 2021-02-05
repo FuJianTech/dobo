@@ -25,12 +25,14 @@ func (v *Auth) UnmarshalJSON(b []byte) error {
 		AuthID   uint   `json:"AuthID"`
 		Email    string `json:"Email"`
 		Password string `json:"Password"`
+		UserName string `json:"user_name"`
 	}{}
 	if err := json.Unmarshal(b, &aux); err != nil {
 		return err
 	}
 	v.AuthID = aux.AuthID
 	v.Email = aux.Email
+	v.UserName = aux.UserName
 	v.Password = HashPass(aux.Password)
 
 	return nil
@@ -46,10 +48,10 @@ func HashPass(pass string) string {
 // MarshalJSON ...
 func (v Auth) MarshalJSON() ([]byte, error) {
 	aux := struct {
-		AuthID uint   `json:"AuthId"`
+		UserName string   `json:"user_name"`
 		Email  string `json:"Email"`
 	}{
-		AuthID: v.AuthID,
+		UserName: v.UserName,
 		Email:  v.Email,
 	}
 

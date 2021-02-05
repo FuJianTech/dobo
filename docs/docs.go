@@ -173,6 +173,42 @@ var doc = `{
                 }
             }
         },
+        "/images/pullImage": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "拉去镜像",
+                "tags": [
+                    "docker"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "推送成功"
+                    }
+                }
+            }
+        },
+        "/images/pushImage": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "推送镜像",
+                "tags": [
+                    "docker"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "推送成功"
+                    }
+                }
+            }
+        },
         "/images/reTagImage": {
             "get": {
                 "security": [
@@ -203,6 +239,24 @@ var doc = `{
                 "responses": {
                     "200": {
                         "description": "重命名成功"
+                    }
+                }
+            }
+        },
+        "/images/saveImage": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "保存镜像到本地",
+                "tags": [
+                    "docker"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "保存成功"
                     }
                 }
             }
@@ -265,10 +319,10 @@ var doc = `{
         "controller.LoginPayload": {
             "type": "object",
             "properties": {
-                "Email": {
+                "email": {
                     "type": "string"
                 },
-                "Password": {
+                "password": {
                     "type": "string"
                 }
             }
