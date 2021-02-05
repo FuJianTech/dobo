@@ -21,6 +21,7 @@ type LoginPayload struct {
 // Login ...
 // @Title 登录
 // @Description 用户登录
+// @tags auth
 // @Param auth body LoginPayload true "Email&Password"
 // @Success 200
 // @Router /login [post]

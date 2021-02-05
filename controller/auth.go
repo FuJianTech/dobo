@@ -19,6 +19,7 @@ var emailRegex = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z
 // @Title 注册
 // @Description 用户注册
 // @Security ApiKeyAuth
+// @tags auth
 // @Param auth body model.Auth true "用户信息"
 // @Success 201 "注册成功"
 // @Router /register [post]

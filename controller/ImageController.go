@@ -10,6 +10,7 @@ import (
 
 // @Title dockerImage
 // @Description 获取镜像列表
+// @tags docker
 // @Security ApiKeyAuth
 // @Success 200 "获取版本成功"
 // @Router /images/getImageList [get]
@@ -26,6 +27,7 @@ func GetImgesList(c *gin.Context)  {
 
 // @Title dockerImage
 // @Description 根据镜像id获取镜像信息
+// @tags docker
 // @Security ApiKeyAuth
 // @Success 200 "获取镜像信息成功"
 // @Router /images/getImageInfo [get]
@@ -36,6 +38,7 @@ func GetImageInfo(c *gin.Context)  {
 
 // @Title deleteDocker
 // @Description 根据镜像id删除镜像
+// @tags docker
 // @Security ApiKeyAuth
 // @Success 200 "删除镜像成功"
 // @Router /images/getImageInfo [get]
@@ -46,6 +49,7 @@ func DeleteImage()  {
 
 // @Title reTagImage
 // @Description 重命名tag
+// @tags docker
 // @Security ApiKeyAuth
 // @Success 200 "重命名成功"
 // @Router /images/reTagImage [post]

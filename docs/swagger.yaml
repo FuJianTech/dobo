@@ -43,6 +43,8 @@ paths:
           description: 磁盘检测通过
       security:
       - ApiKeyAuth: []
+      tags:
+      - docker
   /docker/dockerInfo:
     get:
       description: 获取docker信息
@@ -51,6 +53,8 @@ paths:
           description: 获取docker信息成功
       security:
       - ApiKeyAuth: []
+      tags:
+      - docker
   /docker/getVersion:
     get:
       description: 获取docker信息
@@ -59,6 +63,8 @@ paths:
           description: 获取版本成功
       security:
       - ApiKeyAuth: []
+      tags:
+      - docker
   /docker/ping:
     get:
       description: 检测心跳
@@ -67,6 +73,8 @@ paths:
           description: 心跳检测通过
       security:
       - ApiKeyAuth: []
+      tags:
+      - docker
   /images/getImageInfo:
     get:
       description: 根据镜像id删除镜像
@@ -75,6 +83,8 @@ paths:
           description: 删除镜像成功
       security:
       - ApiKeyAuth: []
+      tags:
+      - docker
   /images/getImageList:
     get:
       description: 获取镜像列表
@@ -83,6 +93,8 @@ paths:
           description: 获取版本成功
       security:
       - ApiKeyAuth: []
+      tags:
+      - docker
   /images/reTagImage:
     post:
       description: 重命名tag
@@ -91,6 +103,8 @@ paths:
           description: 重命名成功
       security:
       - ApiKeyAuth: []
+      tags:
+      - docker
   /login:
     post:
       description: 用户登录
@@ -104,6 +118,8 @@ paths:
       responses:
         "200":
           description: ""
+      tags:
+      - auth
   /register:
     post:
       description: 用户注册
@@ -119,6 +135,8 @@ paths:
           description: 注册成功
       security:
       - ApiKeyAuth: []
+      tags:
+      - auth
 securityDefinitions:
   ApiKeyAuth:
     in: header

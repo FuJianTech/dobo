@@ -11,6 +11,7 @@ import (
 
 // @Title dockerInfo
 // @Description 获取docker信息
+// @tags docker
 // @Security ApiKeyAuth
 // @Success 200 "获取docker信息成功"
 // @Router /docker/dockerInfo [get]
@@ -25,6 +26,7 @@ func DockerInfo(c *gin.Context ) {
 
 // @Title dockerVersion
 // @Description 获取docker信息
+// @tags docker
 // @Security ApiKeyAuth
 // @Success 200 "获取版本成功"
 // @Router /docker/getVersion [get]
@@ -35,6 +37,7 @@ func GerVersion(c *gin.Context)  {
 
 // @Title ping
 // @Description 检测心跳
+// @tags docker
 // @Security ApiKeyAuth
 // @Success 200 "心跳检测通过"
 // @Router /docker/ping [get]
@@ -50,6 +53,7 @@ func Ping(c *gin.Context)  {
 // @Title DiskUsage
 // @Description 检测磁盘
 // @Security ApiKeyAuth
+// @tags docker
 // @Success 200 "磁盘检测通过"
 // @Router /docker/diskUsage [get]
 func DiskUsage(c *gin.Context)  {

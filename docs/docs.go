@@ -37,6 +37,9 @@ var doc = `{
                     }
                 ],
                 "description": "检测磁盘",
+                "tags": [
+                    "docker"
+                ],
                 "responses": {
                     "200": {
                         "description": "磁盘检测通过"
@@ -52,6 +55,9 @@ var doc = `{
                     }
                 ],
                 "description": "获取docker信息",
+                "tags": [
+                    "docker"
+                ],
                 "responses": {
                     "200": {
                         "description": "获取docker信息成功"
@@ -67,6 +73,9 @@ var doc = `{
                     }
                 ],
                 "description": "获取docker信息",
+                "tags": [
+                    "docker"
+                ],
                 "responses": {
                     "200": {
                         "description": "获取版本成功"
@@ -82,6 +91,9 @@ var doc = `{
                     }
                 ],
                 "description": "检测心跳",
+                "tags": [
+                    "docker"
+                ],
                 "responses": {
                     "200": {
                         "description": "心跳检测通过"
@@ -97,6 +109,9 @@ var doc = `{
                     }
                 ],
                 "description": "根据镜像id删除镜像",
+                "tags": [
+                    "docker"
+                ],
                 "responses": {
                     "200": {
                         "description": "删除镜像成功"
@@ -112,6 +127,9 @@ var doc = `{
                     }
                 ],
                 "description": "获取镜像列表",
+                "tags": [
+                    "docker"
+                ],
                 "responses": {
                     "200": {
                         "description": "获取版本成功"
@@ -127,6 +145,9 @@ var doc = `{
                     }
                 ],
                 "description": "重命名tag",
+                "tags": [
+                    "docker"
+                ],
                 "responses": {
                     "200": {
                         "description": "重命名成功"
@@ -137,6 +158,9 @@ var doc = `{
         "/login": {
             "post": {
                 "description": "用户登录",
+                "tags": [
+                    "auth"
+                ],
                 "parameters": [
                     {
                         "description": "Email\u0026Password",
@@ -163,6 +187,9 @@ var doc = `{
                     }
                 ],
                 "description": "用户注册",
+                "tags": [
+                    "auth"
+                ],
                 "parameters": [
                     {
                         "description": "用户信息",
