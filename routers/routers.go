@@ -1,6 +1,7 @@
 package routers
 
 import (
+
 	"dobo/config"
 	"dobo/controller"
 	_ "dobo/docs"
@@ -27,6 +28,7 @@ func SetupRouter() *gin.Engine {
 	router.Use(middleware.CORS())
 
 	// API:v1.0
+
 	v1 := router.Group("/api/v1")
 	{
 
@@ -34,6 +36,19 @@ func SetupRouter() *gin.Engine {
 		rAuth.POST("/login", controller.Login)
 		rAuth.Use(middleware.JWT())
 		rAuth.POST("/register",controller.CreateUserAuth)
+
+
+		rDocker := v1.Group("/docker")
+		rDocker.Use(middleware.JWT())
+		rDocker.GET("/dockerInfo",controller.DockerInfo)
+		rDocker.GET("/getVersion", controller.GerVersion)
+		rDocker.GET("/ping", controller.Ping)
+		rDocker.GET("/diskUsage", controller.DiskUsage)
+
+		rImage := v1.Group("/images")
+		rImage.Use(middleware.JWT())
+		rImage.GET("/getImageList", controller.GetImgesList)
+
 		// Register - no JWT required
 		//v1.POST("/register",middleware.JWT(), controller.CreateUserAuth)
 

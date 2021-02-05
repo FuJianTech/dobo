@@ -29,6 +29,111 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/docker/diskUsage": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "检测磁盘",
+                "responses": {
+                    "200": {
+                        "description": "磁盘检测通过"
+                    }
+                }
+            }
+        },
+        "/docker/dockerInfo": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取docker信息",
+                "responses": {
+                    "200": {
+                        "description": "获取docker信息成功"
+                    }
+                }
+            }
+        },
+        "/docker/getVersion": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取docker信息",
+                "responses": {
+                    "200": {
+                        "description": "获取版本成功"
+                    }
+                }
+            }
+        },
+        "/docker/ping": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "检测心跳",
+                "responses": {
+                    "200": {
+                        "description": "心跳检测通过"
+                    }
+                }
+            }
+        },
+        "/images/getImageInfo": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据镜像id删除镜像",
+                "responses": {
+                    "200": {
+                        "description": "删除镜像成功"
+                    }
+                }
+            }
+        },
+        "/images/getImageList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取镜像列表",
+                "responses": {
+                    "200": {
+                        "description": "获取版本成功"
+                    }
+                }
+            }
+        },
+        "/images/reTagImage": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "重命名tag",
+                "responses": {
+                    "200": {
+                        "description": "重命名成功"
+                    }
+                }
+            }
+        },
         "/login": {
             "post": {
                 "description": "用户登录",

@@ -31,9 +31,9 @@ dobo 使用的是 [GORM] 作为 ORM. GORM 支持 **SQLite3**, **MySQL**,
 ./database.db
 ```
 
-
-- http://localhost:8083/api/v1/register
-  - `POST` [创建用户]
+**接口示例:**
+- http://localhost:8083/api/v1/register 
+  - `POST` [创建用户 不对外提供注册接口，需要使用Token进行注册]
 ```
 {
     "Email":"example@example.com",

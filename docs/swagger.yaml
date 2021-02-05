@@ -35,6 +35,62 @@ info:
   title: tool工具接口
   version: "1.0"
 paths:
+  /docker/diskUsage:
+    get:
+      description: 检测磁盘
+      responses:
+        "200":
+          description: 磁盘检测通过
+      security:
+      - ApiKeyAuth: []
+  /docker/dockerInfo:
+    get:
+      description: 获取docker信息
+      responses:
+        "200":
+          description: 获取docker信息成功
+      security:
+      - ApiKeyAuth: []
+  /docker/getVersion:
+    get:
+      description: 获取docker信息
+      responses:
+        "200":
+          description: 获取版本成功
+      security:
+      - ApiKeyAuth: []
+  /docker/ping:
+    get:
+      description: 检测心跳
+      responses:
+        "200":
+          description: 心跳检测通过
+      security:
+      - ApiKeyAuth: []
+  /images/getImageInfo:
+    get:
+      description: 根据镜像id删除镜像
+      responses:
+        "200":
+          description: 删除镜像成功
+      security:
+      - ApiKeyAuth: []
+  /images/getImageList:
+    get:
+      description: 获取镜像列表
+      responses:
+        "200":
+          description: 获取版本成功
+      security:
+      - ApiKeyAuth: []
+  /images/reTagImage:
+    post:
+      description: 重命名tag
+      responses:
+        "200":
+          description: 重命名成功
+      security:
+      - ApiKeyAuth: []
   /login:
     post:
       description: 用户登录
