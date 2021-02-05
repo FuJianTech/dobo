@@ -84,9 +84,9 @@ dobo
 │───controller
 │    └---auth.go
 │    └---login.go
-│    └---user.go
-│    └---post.go
-│    └---hobby.go
+│    └---dockerController.go
+│    └---imageController.go
+│    └---xxxxx.go
 │
 └───docs
 │    └─--docks.go
@@ -98,10 +98,10 @@ dobo
 │    │
 │    └───model
 │         └---auth.go
-│         └---user.go
-│         └---post.go
+│         └---docker.go
+│         └---image.go
 │         └---hobby.go
-│         └---userHobby.go
+│         └---xxxxx.go
 │
 └───middleware
 │         └---cors.go
@@ -113,6 +113,8 @@ dobo
 └───utils
       └---log.go
       └---RespUtils.go
+      └---context.go
 ```
 
 ## License
+MIT
