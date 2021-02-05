@@ -101,7 +101,7 @@ var doc = `{
                 }
             }
         },
-        "/images/getImageInfo": {
+        "/images/deleteImage/{imageId}": {
             "get": {
                 "security": [
                     {
@@ -112,9 +112,45 @@ var doc = `{
                 "tags": [
                     "docker"
                 ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "镜像ID",
+                        "name": "imageId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "删除镜像成功"
+                    }
+                }
+            }
+        },
+        "/images/getImageInfo/{imageId}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "根据镜像id获取镜像信息",
+                "tags": [
+                    "docker"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "镜像ID",
+                        "name": "imageId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "获取镜像信息成功"
                     }
                 }
             }
@@ -138,7 +174,7 @@ var doc = `{
             }
         },
         "/images/reTagImage": {
-            "post": {
+            "get": {
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -147,6 +183,22 @@ var doc = `{
                 "description": "重命名tag",
                 "tags": [
                     "docker"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "镜像原tag",
+                        "name": "source",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "镜像新tag",
+                        "name": "tag",
+                        "in": "query",
+                        "required": true
+                    }
                 ],
                 "responses": {
                     "200": {

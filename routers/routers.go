@@ -48,34 +48,11 @@ func SetupRouter() *gin.Engine {
 		rImage := v1.Group("/images")
 		rImage.Use(middleware.JWT())
 		rImage.GET("/getImageList", controller.GetImgesList)
+		rImage.GET("/getImageInfo/:imageId", controller.GetImageInfo)
+		rImage.GET("/deleteImage/:imageId", controller.DeleteImage)
+		rImage.GET("/reTagImage", controller.ReTagImage)
 
-		// Register - no JWT required
-		//v1.POST("/register",middleware.JWT(), controller.CreateUserAuth)
 
-		// Login - app issues JWT
-		//v1.POST("/login", controller.Login)
-
-		//// User
-		//rUsers := v1.Group("users")
-		//rUsers.GET("", controller.GetUsers)    // Non-protected
-		//rUsers.GET("/:id", controller.GetUser) // Non-protected
-		//rUsers.Use(middleware.JWT())
-		//rUsers.POST("", controller.CreateUser)      // Protected
-		//rUsers.PUT("", controller.UpdateUser)       // Protected
-		//rUsers.PUT("/hobbies", controller.AddHobby) // Protected
-		//
-		//// Post
-		//rPosts := v1.Group("posts")
-		//rPosts.GET("", controller.GetPosts)    // Non-protected
-		//rPosts.GET("/:id", controller.GetPost) // Non-protected
-		//rPosts.Use(middleware.JWT())
-		//rPosts.POST("", controller.CreatePost)       // Protected
-		//rPosts.PUT("/:id", controller.UpdatePost)    // Protected
-		//rPosts.DELETE("/:id", controller.DeletePost) // Protected
-		//
-		//// Hobby
-		//rHobbies := v1.Group("hobbies")
-		//rHobbies.GET("", controller.GetHobbies) // Non-protected
 	}
 
 	return router

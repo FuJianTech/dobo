@@ -75,12 +75,34 @@ paths:
       - ApiKeyAuth: []
       tags:
       - docker
-  /images/getImageInfo:
+  /images/deleteImage/{imageId}:
     get:
       description: 根据镜像id删除镜像
+      parameters:
+      - description: 镜像ID
+        in: path
+        name: imageId
+        required: true
+        type: string
       responses:
         "200":
           description: 删除镜像成功
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - docker
+  /images/getImageInfo/{imageId}:
+    get:
+      description: 根据镜像id获取镜像信息
+      parameters:
+      - description: 镜像ID
+        in: path
+        name: imageId
+        required: true
+        type: string
+      responses:
+        "200":
+          description: 获取镜像信息成功
       security:
       - ApiKeyAuth: []
       tags:
@@ -96,8 +118,19 @@ paths:
       tags:
       - docker
   /images/reTagImage:
-    post:
+    get:
       description: 重命名tag
+      parameters:
+      - description: 镜像原tag
+        in: query
+        name: source
+        required: true
+        type: string
+      - description: 镜像新tag
+        in: query
+        name: tag
+        required: true
+        type: string
       responses:
         "200":
           description: 重命名成功
